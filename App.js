@@ -1,21 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NativeRouter, Route } from 'react-router-native';
+import Cuisine from './components/Cuisine';
+import MainMenu from './components/MainMenu';
+import {HomeWrapper} from './App.styled'
 
 export default function App() {
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <HomeWrapper>
+    <NativeRouter>
+      <Route exact path='/' component={MainMenu} />
+      <Route path='/cuisine/:cuisine' component={Cuisine}/>
+    </NativeRouter>
+    </HomeWrapper>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
