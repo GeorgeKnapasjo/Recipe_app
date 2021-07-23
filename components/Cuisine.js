@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-native';
 import {Wrapper, CuisineWrapper, PageLayout, StyledLink} from './Cuisine.styled'
 import {Text} from 'react-native'
+import {apiKey} from '../apiKey'
 
 export const Cuisine = (props) => {
-    const key = '4874d98c022c482a8b1f6c02ddb4a614';
     const cuisine = props.match.params.cuisine
     const [loading, setLoading] = useState();
     const [data, setData] = useState()
   useEffect(()=>{
-      const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&apiKey=${key}`
+      const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&apiKey=${apiKey}`
       console.log(url)
     },[])
     return(
